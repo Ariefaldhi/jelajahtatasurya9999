@@ -147,6 +147,21 @@
                 </div>
             );
 
+            const AlurBelajar = () => (
+                <div className="glass-card p-4 rounded-[2.5rem] shadow-2xl animate-in fade-in slide-in-from-bottom duration-700 max-w-2xl w-full">
+                    <h3 className="text-2xl font-extrabold text-blue-400 mb-4 text-center uppercase tracking-tighter">🗺️ Alur & Bahan Kajian</h3>
+                    <div className="rounded-2xl overflow-hidden border border-white/10 mb-6">
+                        <img src="gambar.jpg" alt="Alur Belajar" className="w-full h-auto" />
+                    </div>
+                    <button 
+                        onClick={() => setStage('menu')}
+                        className="w-full py-4 bg-white/10 hover:bg-white/20 rounded-2xl font-bold transition-all border border-white/10 text-white"
+                    >
+                        Kembali ke Menu
+                    </button>
+                </div>
+            );
+
             return (
                 <div className="min-h-screen flex items-center justify-center p-6 relative z-10 text-white selection:bg-yellow-400 selection:text-black">
                     
@@ -170,27 +185,36 @@
                     )}
 
                     {stage === 'menu' && (
-                        <div className="flex flex-col md:flex-row gap-6 w-full max-w-2xl animate-in slide-in-from-bottom-10 duration-700">
+                        <div className="flex flex-col md:flex-row gap-6 w-full max-w-3xl animate-in slide-in-from-bottom-10 duration-700">
                             <button 
                                 onClick={() => setStage('materi')}
-                                className="flex-1 p-10 glass-card rounded-[3rem] hover:bg-blue-600 transition-all transform hover:-translate-y-4 group"
+                                className="flex-1 p-8 glass-card rounded-[3rem] hover:bg-blue-600 transition-all transform hover:-translate-y-4 group"
                             >
-                                <div className="text-6xl mb-4 group-hover:scale-125 transition-transform">📖</div>
-                                <h4 className="text-2xl font-bold">Baca Materi</h4>
-                                <p className="text-gray-400 text-sm mt-2 group-hover:text-white">Pelajari fakta planet</p>
+                                <div className="text-5xl mb-4 group-hover:scale-125 transition-transform">📖</div>
+                                <h4 className="text-xl font-bold">Baca Materi</h4>
+                                <p className="text-gray-400 text-xs mt-2 group-hover:text-white">Pelajari fakta planet</p>
+                            </button>
+                            <button 
+                                onClick={() => setStage('alur')}
+                                className="flex-1 p-8 glass-card rounded-[3rem] hover:bg-emerald-600 transition-all transform hover:-translate-y-4 group"
+                            >
+                                <div className="text-5xl mb-4 group-hover:scale-125 transition-transform">🗺️</div>
+                                <h4 className="text-xl font-bold">Alur Belajar</h4>
+                                <p className="text-gray-400 text-xs mt-2 group-hover:text-white">Bahan kajian utama</p>
                             </button>
                             <button 
                                 onClick={() => setStage('kuis')}
-                                className="flex-1 p-10 glass-card rounded-[3rem] hover:bg-purple-600 transition-all transform hover:-translate-y-4 group"
+                                className="flex-1 p-8 glass-card rounded-[3rem] hover:bg-purple-600 transition-all transform hover:-translate-y-4 group"
                             >
-                                <div className="text-6xl mb-4 group-hover:scale-125 transition-transform">❓</div>
-                                <h4 className="text-2xl font-bold">Uji Kuis</h4>
-                                <p className="text-gray-400 text-sm mt-2 group-hover:text-white">Asah kemampuanmu</p>
+                                <div className="text-5xl mb-4 group-hover:scale-125 transition-transform">❓</div>
+                                <h4 className="text-xl font-bold">Uji Kuis</h4>
+                                <p className="text-gray-400 text-xs mt-2 group-hover:text-white">Asah kemampuanmu</p>
                             </button>
                         </div>
                     )}
 
                     {stage === 'materi' && <CardJupiter />}
+                    {stage === 'alur' && <AlurBelajar />}
                     {stage === 'kuis' && <Quiz />}
 
                 </div>
